@@ -2,7 +2,7 @@
 
 // obter informações do arquivo do fomulario
 $nome_arquivo = basename($_FILES['arquivo']['name']);
-$extensão_arquivo = substr($nome_arquivo, strpos($nome_arquivo, '.')+1);
+$extensão_arquivo = substr($nome_arquivo, strpos($nome_arquivo, '.') + 1);
 $tamanho_arquivo = $_FILES['arquivo']['size']/1024;
 
 // validar a extenção do arquivo
