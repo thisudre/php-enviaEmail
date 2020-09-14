@@ -4,15 +4,21 @@ services:
     nginx:
         image: nginx:1.13
         volumes: 
-            - .:/script
+            - "./app:/var/www/html"
+            - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
         ports:
             - "80:80"
+        depends_on:
+            - web
 
-    fomulario:
-        build: .
+    web:
+        image: php:7.4-fpm
         volumes: 
-            - ".:/script"
+            - "./app:/var/www/html"
         ports: 
             - "3000:3000"
+
     ocr:
         image: guilhermeadc/ocr-server
+        volumes: 
+            - /script/tmp:/var/ocr-server/.
