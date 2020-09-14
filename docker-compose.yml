@@ -15,8 +15,6 @@ services:
         image: php:7.4-fpm
         volumes: 
             - "./app:/var/www/html"
-        ports: 
-            - "3000:3000"
 
     ocr:
         image: guilhermeadc/ocr-server
